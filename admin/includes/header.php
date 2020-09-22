@@ -1,5 +1,5 @@
 <div class="brand clearfix">
-		<a href="#" class="logo" style="font-size:16px;">DIU HMS v1.0</a>
+		<a href="index.html" class="logo" style="font-size:16px;">DIU HMS v1.0</a>
 		<span class="menu-btn"><i class="fa fa-bars"></i></span>
 		<ul class="ts-profile-nav">
 			<li class="ts-account">

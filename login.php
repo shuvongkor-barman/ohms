@@ -72,10 +72,13 @@ return true;
 }
 </script>
 </head>
+
 <body>
 	<?php include('includes/header.php');?>
 	<div class="ts-main-content">
-		<?php include('includes/sidebar.php');?>
+	
+	<?php include('includes/sidebar.php');?>	
+		
 		<div class="content-wrapper">
 			<div class="container-fluid">
 
