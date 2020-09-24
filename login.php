@@ -47,7 +47,7 @@ header("location:dashboard.php");
 	<meta name="description" content="">
 	<meta name="author" content="">
 	<meta name="theme-color" content="#3e454c">
-	<title>Student Hostel Registration</title>
+	<title>Student Registration</title>
 	<link rel="stylesheet" href="css/font-awesome.min.css">
 	<link rel="stylesheet" href="css/bootstrap.min.old.css">
 	<link rel="stylesheet" href="css/dataTables.bootstrap.min.css">>
@@ -73,7 +73,7 @@ return true;
 </script>
 </head>
 
-<body>
+<body class="bg-image">
 	<?php include('includes/header.php');?>
 	<div class="ts-main-content">
 	
@@ -85,11 +85,12 @@ return true;
 				<div class="row">
 					<div class="col-md-12">
 					
-						<h2 class="page-title">User Login </h2>
+						<h2 class="page-title">Student Login </h2>
 
 						<div class="row">
-					<div class="col-md-6 col-md-offset-3">
-						<div class="well row pt-2x pb-3x bk-light">
+						<div class="col-md-6 col-md-offset-3">
+						
+						<div class="well row pt-2x pb-3x bk-light login-area">
 							<div class="col-md-8 col-md-offset-2">
 							
 								<form action="" class="mt" method="post">
@@ -99,12 +100,12 @@ return true;
 									<input type="password" placeholder="Password" name="password" class="form-control mb">
 									
 
-									<input type="submit" name="login" class="btn btn-primary btn-block" value="login" >
+									<input type="submit" name="login" class="btn btn-primary btn-block" value="Login" >
 								</form>
 							</div>
 						</div>
-						<div class="text-center text-light">
-							<a href="forgot-password.php" class="text-light">Forgot password?</a>
+						<div class="text-center">
+							<a href="forgot-password.php" class="forgot-pass">Forgot password?</a>
 						</div>
 					</div>
 				</div>
