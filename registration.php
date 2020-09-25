@@ -4,13 +4,11 @@ $_SESSION['message'] = '';
 
 $mysqli = new mysqli('localhost', 'root', 'rootpassword', 'diuohmsx_hostel');
 
+
+
 if($_SERVER['REQUEST_METHOD'] == 'POST') {
     // two password are equal to each other
     if($_POST['password']== $_POST['confirm_password']) {
-
-        // $username = $mysqli->real_escape_string($_POST['username']);
-        // $email = $mysqli->real_escape_string($_POST['email']);
-		// $password = md5($_POST['password']); // md5 hash password security
 
 		$regno = $mysqli->real_escape_string($_POST['regno']);
 		$fname = $mysqli->real_escape_string($_POST['fname']);
@@ -19,11 +17,14 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
 		$gender = $_POST['gender'];
 		$contactno = $mysqli->real_escape_string($_POST['contactno']);
 		$emailid = $mysqli->real_escape_string($_POST['emailid']);
+		// $password = md5($_POST['password']); // Encrypted Secure Password
 		$password = $_POST['password'];
 
 
-        $sql = "INSERT INTO userRegistration (regNo, firstName, middleName, lastName, gender, contactNo, email, password)"
+        
+        $sql = "INSERT INTO userregistration (regNo, firstName, middleName, lastName, gender, contactNo, email, password)"
 				. "VALUES ('$regno', '$fname', '$mname', '$lname', '$gender', '$contactno', '$emailid', '$password')";
+                
                 // If sthe query is successful, redirect to welcom.php page, done!
 
                 if($mysqli->query($sql) === true){
@@ -51,7 +52,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Sign Up Form by Colorlib</title>
+    <title>Sign Up Form for Students</title>
 
     <!-- Font Icon -->
 
@@ -86,7 +87,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
 
 					    <div class="form-group">
 							<div class="col-sm-8">
-							<select name="gender" class="form-input" required="required">
+							<select name="gender" class="form-input">
 							<option value="">Select Gender</option>
 							<option value="male">Male</option>
 							<option value="female">Female</option>
@@ -122,7 +123,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
                         </div>
 					</form>
 
-					<div class="welcomeMsg"><?= $_SESSION['message'] ?>Welcome</div>
+					<div class="welcomeMsg"><?= $_SESSION['message'] ?></div>
 					
 
 
