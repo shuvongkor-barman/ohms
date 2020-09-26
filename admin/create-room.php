@@ -69,7 +69,7 @@ echo"<script>alert('Room has been added successfully');</script>";
 									<div class="panel-body">
 									<?php if(isset($_POST['submit']))
 { ?>
-<p style="color: red"><?php echo htmlentities($_SESSION['msg']); ?><?php echo htmlentities($_SESSION['msg']=""); ?></p>
+<p style="color: red">Successfully Room Added</p>
 <?php } ?>
 										<form method="post" class="form-horizontal">
 											

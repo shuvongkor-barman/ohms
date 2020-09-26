@@ -26,9 +26,7 @@ check_login();
 	<link rel="stylesheet" href="css/fileinput.min.css">
 	<link rel="stylesheet" href="css/awesome-bootstrap-checkbox.css">
 	<link rel="stylesheet" href="css/style.css">
-	
-
-
+	<link rel="stylesheet" href="style2.css">
 </head>
 
 <body>
@@ -156,34 +154,13 @@ $stmt2->close();
 
 	}
 	</script>
+
 <div class="footer">
-<footer>
-<p class="footer_text"> Made by <a href="#">Raihan</a></p>
-</footer>
+	<footer>
+		<p class="footer_text"> Made by <a href="../index.html"> OHMS</a></p>
+	</footer>
 </div>
+
 </body>
-
-<style>
-.footer {
-   position: fixed;
-   left: 0;
-   bottom: 0;
-   width: 100%;
-   background-color: green;
-   color: white;
-   text-align: center;
-   }
-
-.footer_text {
-	color: white;
-	padding-top: 20px;
-}
-
-.footer_text a {
-	font-size: 1.5em;
-	color: black;
-}
-
-</style>
 
 </html>

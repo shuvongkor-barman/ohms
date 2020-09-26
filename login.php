@@ -5,6 +5,7 @@ if(isset($_POST['login']))
 {
 $email=$_POST['email'];
 $password=$_POST['password'];
+
 $stmt=$mysqli->prepare("SELECT email,password,id FROM userregistration WHERE email=? and password=? ");
 				$stmt->bind_param('ss',$email,$password);
 				$stmt->execute();
@@ -24,7 +25,7 @@ $geopluginURL='http://www.geoplugin.net/php.gp?ip='.$ip;
 $addrDetailsArr = unserialize(file_get_contents($geopluginURL));
 $city = $addrDetailsArr['geoplugin_city'];
 $country = $addrDetailsArr['geoplugin_countryName'];
-$log="insert into userLog(userId,userEmail,userIp,city,country) values('$uid','$uemail','$ip','$city','$country')";
+$log="insert into userlog(userId,userEmail,userIp,city,country) values('$uid','$uemail','$ip','$city','$country')";
 $mysqli->query($log);
 if($log)
 {
@@ -106,6 +107,8 @@ return true;
 						</div>
 						<div class="text-center">
 							<a href="forgot-password.php" class="forgot-pass">Forgot password?</a>
+							<a href="index.html" class="home-button">Homepage</a>
+
 						</div>
 					</div>
 				</div>

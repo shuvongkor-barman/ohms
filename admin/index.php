@@ -16,10 +16,10 @@ $stmt=$mysqli->prepare("SELECT username,email,password,id FROM admin WHERE (user
 				if($rs)
 				{
                 //  $insert="INSERT into admin(adminid,ip)VALUES(?,?)";
-   // $stmtins = $mysqli->prepare($insert);
-   // $stmtins->bind_param('sH',$id,$uip);
-    //$res=$stmtins->execute();
-					header("location:admin-profile.php");
+				// $stmtins = $mysqli->prepare($insert);
+				// $stmtins->bind_param('sH',$id,$uip);
+				//$res=$stmtins->execute();
+					header("location:dashboard.php");
 				}
 
 				else

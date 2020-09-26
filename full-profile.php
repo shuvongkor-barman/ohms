@@ -1,259 +1,233 @@
 <?php
 session_start();
-//include("includes/config.php");
-$mysql_hostname = "localhost";
-$mysql_user = "root";
-$mysql_password = "";
-$mysql_database = "hostel";
-$prefix = "";
-$bd = mysql_connect($mysql_hostname, $mysql_user, $mysql_password) or die("Could not connect database");
-mysql_select_db($mysql_database, $bd) or die("Could not select database");
+$dbconnect = new mysqli('localhost', 'root', 'rootpassword', 'diuohmsx_hostel');
 ?>
-<script language="javascript" type="text/javascript">
-function f2()
-{
-window.close();
-}
-function f3()
-{
-window.print(); 
-}
-</script>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+
+<!DOCTYPE html>
+<html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
-<title>Student  Information</title>
-<link href="style.css" rel="stylesheet" type="text/css" />
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+<title>Print Student  Information | DIU OHMS </title>
 <link href="hostel.css" rel="stylesheet" type="text/css">
+
 </head>
 
 <body>
-<table width="100%" border="0">
-<?php 
-		 $ret= mysql_query("SELECT * FROM registration where emailid = '".$_GET['id']."'");
-			while($row=mysql_fetch_array($ret))
-			{
-			?>
-			<tr>
-			  <td colspan="2" align="center" class="font1">&nbsp;</td>
-  </tr>
-			<tr>
-			  <td colspan="2" align="center" class="font1">&nbsp;</td>
-  </tr>
-			
-			<tr>
-			  <td colspan="2"  class="font"><?php echo ucfirst($row['firstName']);?> <?php echo ucfirst($row['lastName']);?>'S <span class="font1"> information &raquo;</span> </td>
-  </tr>
-			<tr>
-			  <td colspan="2"  class="font">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-		      <div align="right">Reg Date : <span class="comb-value"><?php echo $row['postingDate'];?></span></div></td>
-  </tr>
-			<tr>
-			  <td colspan="2"  class="heading" style="color: red;">Room Related Info &raquo; </td>
-  </tr>
-			<tr>
-			  <td colspan="2"  class="font1"><table width="100%" border="0">
-                <tr>
-                  <td width="32%" valign="top" class="heading">Room no : </td>
-                  
-                      <td class="comb-value1"><span class="comb-value"><?php echo $row['roomno'];?></span></td>
-                    </tr>
-                  <tr>
-                  <td width="22%" valign="top" class="heading">Seater : </td>
-                  
-                      <td class="comb-value1"><span class="comb-value"><?php echo $row['seater'];?></span></td>
-                    </tr>
-                  
-                    <tr>
-                    <td width="12%" valign="top" class="heading">Fees PM : </td>
-                      <td class="comb-value1"><?php echo $fpm=$row['feespm'];?></td>
-                    </tr>
-                     <tr>
-                    <td width="12%" valign="top" class="heading">Food Status: </td>
-                      <td class="comb-value1"><?php if($row['foodstatus']==0)
-{
-  echo "Without Food";
-}
-else
-{
-  echo "With Food";
-}
-                      ;?></td>
-                    </tr>
-                    <tr>
-                    <td width="12%" valign="top" class="heading">Staying From: </td>
-                      <td class="comb-value1"><?php echo $row['stayfrom'];?></td>
-                    </tr>
-                    <tr>
-                    <td width="12%" valign="top" class="heading">Duration: </td>
-                      <td class="comb-value1"><?php echo $dr=$row['duration'];?></td>
-                    </tr>
-                    <tr>
-                    <td width="12%" valign="top" class="heading">Total Fee: </td>
-                      <td class="comb-value1">
-                      <?php if($row['foodstatus']==1)
-                      { 
-                        $fd=2000; 
-                        echo (($dr*$fpm)+$fd);
-                      }
-                        else
-                        {
-                          echo $dr*$fpm;
-                        }
-                      ?></td>
-                    </tr>
-  <tr>
-   <td colspan="2" align="left"  class="heading" style="color: red;">Personal Info &raquo; </td>
-  </tr>
-<tr>
-<td width="12%" valign="top" class="heading">Course: </td>
-<td class="comb-value1"><?php echo $row['course'];?></td>
-</tr>
 
-<tr>
-<td width="12%" valign="top" class="heading">Reg no: </td>
-<td class="comb-value1"><?php echo $row['regno'];?></td>
-</tr>
+<div id="mainContent">
 
-<tr>
-<td width="12%" valign="top" class="heading">First Name: </td>
-<td class="comb-value1"><?php echo $row['firstName'];?></td>
-</tr>
-
-<tr>
-<td width="12%" valign="top" class="heading">Middle name: </td>
-<td class="comb-value1"><?php echo $row['middleName'];?></td>
-</tr>
-
-<tr>
-<td width="12%" valign="top" class="heading">Last: </td>
-<td class="comb-value1"><?php echo $row['lastName'];?></td>
-</tr>
-
-<tr>
-<td width="12%" valign="top" class="heading">Gender: </td>
-<td class="comb-value1"><?php echo $row['gender'];?></td>
-</tr>
-
-<tr>
-<td width="12%" valign="top" class="heading">Contact No: </td>
-<td class="comb-value1"><?php echo $row['contactno'];?></td>
-</tr>
-
-<tr>
-<td width="12%" valign="top" class="heading">Email id: </td>
-<td class="comb-value1"><?php echo $row['emailid'];?></td>
-</tr>
-
-<tr>
-<td width="12%" valign="top" class="heading">Emergency Contact: </td>
-<td class="comb-value1"><?php echo $row['egycontactno'];?></td>
-</tr>
-
-<tr>
-<td width="12%" valign="top" class="heading">Guardian Name: </td>
-<td class="comb-value1"><?php echo $row['guardianName'];?></td>
-</tr>
-
-<tr>
-<td width="12%" valign="top" class="heading">Guardian Relation: </td>
-<td class="comb-value1"><?php echo $row['guardianRelation'];?></td>
-</tr>
-
-<tr>
-<td width="12%" valign="top" class="heading">Guardian Contact: </td>
-<td class="comb-value1"><?php echo $row['guardianContactno'];?></td>
-</tr>
-<tr>
-        <td colspan="2"  class="heading" style="color: red;">Correspondence Address  &raquo; </td>
-  </tr>
-<tr>
-<td width="12%" valign="top" class="heading">Address: </td>
-<td class="comb-value1"><?php echo $row['corresAddress'];?></td>
-</tr>
-
-<tr>
-<td width="12%" valign="top" class="heading">City: </td>
-<td class="comb-value1"><?php echo $row['corresCIty'];?></td>
-</tr>
-
-<tr>
-<td width="12%" valign="top" class="heading">State: </td>
-<td class="comb-value1"><?php echo $row['corresState'];?></td>
-</tr>
-
-<tr>
-<td width="12%" valign="top" class="heading">Pincode: </td>
-<td class="comb-value1"><?php echo $row['corresPincode'];?></td>
-</tr>
-<tr>
-        <td colspan="2"  class="heading" style="color: red;">Permanent Address  &raquo; </td>
-  </tr>
-<tr>
-<td width="12%" valign="top" class="heading">Address: </td>
-<td class="comb-value1"><?php echo $row['pmntAddress'];?></td>
-</tr>
-
-<tr>
-<td width="12%" valign="top" class="heading">City: </td>
-<td class="comb-value1"><?php echo $row['pmntCity'];?></td>
-</tr>
-
-<tr>
-<td width="12%" valign="top" class="heading">State: </td>
-<td class="comb-value1"><?php echo $row['pmnatetState'];?></td>
-</tr>
-
-<tr>
-<td width="12%" valign="top" class="heading">Pincode: </td>
-<td class="comb-value1"><?php echo $row['pmntPincode'];?></td>
-</tr>
-<tr>
-<td width="12%" valign="top" class="heading">State: </td>
-<td class="comb-value1"><?php echo $row['pmnatetState'];?></td>
-</tr>
-<?php } ?>
+  <table id="printData">
+          <?php 
+                  $ret = mysqli_query($dbconnect, "SELECT * FROM registration where emailid = '".$_GET['id']."'");
+                
+              while($row=mysqli_fetch_array($ret)){
+          ?>
 
 
-                   
-                  </table></td>
-                </tr>
-               
-					
-                  </table></td>
-                </tr>
-              </table></td>
-  </tr>
-		
-           
- 
-	 
-    </table></td>
-  </tr>
 
-  
-  <tr>
-    <td colspan="2" align="right" ><form id="form1" name="form1" method="post" action="">
-      <table width="100%" border="0" cellpadding="0" cellspacing="0">
-        <tr>
-          <td width="14%">&nbsp;</td>
-          <td width="35%" class="comb-value"><label>
-            <input name="Submit" type="submit" class="txtbox4" value="Prints this Document " onClick="return f3();" />
-          </label></td>
-          <td width="3%">&nbsp;</td>
-          <td width="26%"><label>
-            <input name="Submit2" type="submit" class="txtbox4" value="Close this document " onClick="return f2();"  />
-          </label></td>
-          <td width="8%">&nbsp;</td>
-          <td width="14%">&nbsp;</td>
-        </tr>
+          <tr>
+              <th colspan="2"><?php echo ucfirst($row['firstName']);?> <?php echo ucfirst($row['lastName']);?>'S <span class="font1"> information &raquo;</span> </th>
+          </tr>
+          <tr>
+              <td>Reg Date : </td>
+              <td><?php echo $row['postingDate'];?> </td>
+          </tr>
+          <tr>
+              <th colspan="2">Room Related Info &raquo; </th>
+          </tr>      
+          
+
+          <tr>
+              <td>Room No. : </td>
+
+              <td><?php echo $row['roomno'];?></td>
+          </tr>
+          <tr>
+              <td>Seater : </td>
+
+              <td><span class="comb-value"><?php echo $row['seater'];?></span></td>
+          </tr>
+
+          <tr>
+              <td>Fees PM : </td>
+              <td><?php echo $fpm=$row['feespm'];?></td>
+          </tr>
+          <tr>
+              <td>Food Status: </td>
+              <td><?php if($row['foodstatus']==0)
+          {
+            echo "Without Food";
+          }
+          else
+          {
+            echo "With Food";
+          }
+                                ;?></td>
+          </tr>
+          <tr>
+              <td>Staying From: </td>
+              <td><?php echo $row['stayfrom'];?></td>
+          </tr>
+          <tr>
+              <td>Duration: </td>
+              <td><?php echo $dr=$row['duration'];?></td>
+          </tr>
+          <tr>
+              <td>Total Fee: </td>
+              <td>
+                  <?php if($row['foodstatus']==1)
+                                { 
+                                  $fd=2000; 
+                                  echo (($fd+$fpm)*$dr);
+                                }
+                                  else
+                                  {
+                                    echo $dr*$fpm;
+                                  }
+                                ?></td>
+          </tr>
+          <tr>
+              <th colspan="2">Personal Info &raquo; </th>
+          </tr>
+          <tr>
+              <td>Course: </td>
+              <td><?php echo $row['course'];?></td>
+          </tr>
+
+          <tr>
+              <td>Reg No: </td>
+              <td><?php echo $row['regno'];?></td>
+          </tr>
+
+          <tr>
+              <td>Full Name: </td>
+              <td><?php echo $row['firstName'];?> <?php echo $row['middleName'];?> <?php echo $row['lastName'];?></td>
+          </tr>
+
+          <tr>
+              <td>Gender: </td>
+              <td><?php echo $row['gender'];?></td>
+          </tr>
+
+          <tr>
+              <td>Contact No: </td>
+              <td><?php echo $row['contactno'];?></td>
+          </tr>
+
+          <tr>
+              <td>Email ID: </td>
+              <td><?php echo $row['emailid'];?></td>
+          </tr>
+
+          <tr>
+              <td>Emergency Contact: </td>
+              <td><?php echo $row['egycontactno'];?></td>
+          </tr>
+
+          <tr>
+              <td>Guardian Name: </td>
+              <td><?php echo $row['guardianName'];?></td>
+          </tr>
+
+          <tr>
+              <td>Guardian Relation: </td>
+              <td><?php echo $row['guardianRelation'];?></td>
+          </tr>
+
+          <tr>
+              <td>Guardian Contact: </td>
+              <td><?php echo $row['guardianContactno'];?></td>
+          </tr>
+          <tr>
+              <th colspan="2">Current Address &raquo; </th>
+          </tr>
+          <tr>
+              <td>Address: </td>
+              <td><?php echo $row['corresAddress'];?></td>
+          </tr>
+
+          <tr>
+              <td>City: </td>
+              <td><?php echo $row['corresCIty'];?></td>
+          </tr>
+
+          <tr>
+              <td>Division: </td>
+              <td><?php echo $row['corresState'];?></td>
+          </tr>
+
+          <tr>
+              <td>Postal Code: </td>
+              <td><?php echo $row['corresPincode'];?></td>
+          </tr>
+          <tr>
+              <th colspan="2">Permanent Address &raquo; </th>
+          </tr>
+          <tr>
+              <td>Address: </td>
+              <td><?php echo $row['pmntAddress'];?></td>
+          </tr>
+
+          <tr>
+              <td>City: </td>
+              <td><?php echo $row['pmntCity'];?></td>
+          </tr>
+
+          <tr>
+              <td>Division: </td>
+              <td><?php echo $row['pmnatetState'];?></td>
+          </tr>
+
+          <tr>
+              <td>Postal Code: </td>
+              <td><?php echo $row['pmntPincode'];?></td>
+          </tr>
+          <tr>
+              <td>Division: </td>
+              <td><?php echo $row['pmnatetState'];?></td>
+          </tr>
+          <?php } ?>     
+      
+    
       </table>
-        </form>    </td>
-  </tr>
-  <tr>
-    <td colspan="2">&nbsp;</td>
-  </tr>
-</table>
+
+
+  <div class="printSection">
+    <input id="printpagebutton" type="button" value="Print this page" onclick="printpage()"/>
+    <input id="closepagebutton" type="button" value="Close this page" onclick="closepage()"/>
+ 
+  </div>
+</div>
+
 </body>
+
+<script type="text/javascript">
+    function printpage() {
+        //Get the print button and put it into a variable   
+        var printButton = document.getElementById("printpagebutton");
+		   var closeButton = document.getElementById("closepagebutton");
+        //Set the print button visibility to 'hidden' 
+        printButton.style.visibility = 'hidden';
+		    closeButton.style.visibility = 'hidden';
+        
+        var printText = document.getElementById("printData");
+        printText.style.fontSize = '11px';
+        
+        //Print the page content
+        window.print()
+        //Set the print button to 'visible' again 
+        //[Delete this line if you want it to stay hidden after printing]
+        printButton.style.visibility = 'visible';
+		    closeButton.style.visibility = 'visible';
+        printText.style.fontSize = 'inherit';
+    }
+	
+	function closepage() { 
+        window.close();
+         }
+
+</script>
 </html>

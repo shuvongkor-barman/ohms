@@ -1,7 +1,7 @@
-<?php if(isset($_POST['id'])){
-	
-	?><div class="brand clearfix">
-		<a href="index.html" class="logo" style="font-size:16px;">DIU HMS v1.0</a>
+
+<?php if($_SESSION['id'])
+{ ?><div class="brand clearfix">
+		<a href="index.html" class="logo" style="font-size:16px;">OHMS v0.1</a>
 		<span class="menu-btn"><i class="fa fa-bars"></i></span>
 		<ul class="ts-profile-nav">
 			<li class="ts-account">
@@ -17,7 +17,7 @@
 <?php
 } else { ?>
 <div class="brand clearfix">
-		<a href="index.html" class="logo" style="font-size:16px;">DIU HMS v1.0</a>
+		<a href="index.html" class="logo" style="font-size:16px;">OHMS v0.1</a>
 		<span class="menu-btn"><i class="fa fa-bars"></i></span>
 		
 	</div>

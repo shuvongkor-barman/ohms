@@ -15,7 +15,7 @@ $lname=$_POST['lname'];
 $gender=$_POST['gender'];
 $contactno=$_POST['contact'];
 $udate = date('d-m-Y h:i:s', time());
-$query="update  userRegistration set regNo=?,firstName=?,middleName=?,lastName=?,gender=?,contactNo=?,updationDate=? where id=?";
+$query="update  userregistration set regNo=?,firstName=?,middleName=?,lastName=?,gender=?,contactNo=?,updationDate=? where id=?";
 $stmt = $mysqli->prepare($query);
 $rc=$stmt->bind_param('sssssisi',$regno,$fname,$mname,$lname,$gender,$contactno,$udate,$aid);
 $stmt->execute();
@@ -125,7 +125,7 @@ Last Updation date : &nbsp; <?php echo $row->updationDate;?>
 <label class="col-sm-2 control-label">Gender : </label>
 <div class="col-sm-8">
 <select name="gender" class="form-control" required="required">
-<option value="<?php echo $row->gender;?>"><?php echo $row->gender;?></option>
+<!-- <option value="<?php echo $row->gender;?>"><?php echo $row->gender;?></option> -->
 <option value="male">Male</option>
 <option value="female">Female</option>
 <option value="others">Others</option>

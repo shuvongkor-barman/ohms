@@ -121,28 +121,12 @@ check_login();
 
 	}
 	</script>
+	
+<div class="footer">
+	<footer>
+		<p class="footer_text"> Made by <a href="index.html">OHMS</p>
+	</footer>
+</div>
 
 </body>
-
-<div class="foot"><footer>
-<p class="footer_text"> Coded by <a href="#">Raihan</p>
-</footer> </div>
-
-
-<style>
-.foot{
-	margin-top: 380px;
-	text-align: center;	 
-	 border: 1px solid black;
-	 background-color: green;
-	}
-.footer_text {
-	color: white;
-	padding-top: 20px;
-}
-
-.footer_text a {
-	font-size: 1.5em;
-	color: black;
-}
 </html>

@@ -3,6 +3,7 @@ session_start();
 include('includes/config.php');
 include('includes/checklogin.php');
 check_login();
+
 //code for registration
 if(isset($_POST['submit']))
 {
@@ -61,6 +62,28 @@ echo"<script>alert('Student Succssfully register');</script>";
 <script type="text/javascript" src="js/jquery-1.11.3-jquery.min.js"></script>
 <script type="text/javascript" src="js/validation.min.js"></script>
 <script type="text/javascript" src="http://code.jquery.com/jquery.min.js"></script>
+
+		<script> // calculation script
+		
+        function calculateTotal(){
+			var a = parseInt(document.getElementById("fpm").value);			
+			var b = Number(document.querySelector("div.foodStatus input[name='foodstatus']:checked").value);			
+            var c = parseInt(document.getElementById("duration").value);			
+
+			if(b == 0){
+			document.getElementById("ta").value = String((a*c)+(" TK"));  
+			} else if(b == 1) {
+				var food = 2000;
+				document.getElementById("ta").value = String((a+food)*c)+(" TK");  
+			}
+			else {
+				document.getElementById("ta").value = 0;  
+
+			}	
+        }
+        
+		</script>
+
 <script>
 function getSeater(val) {
 $.ajax({
@@ -101,7 +124,7 @@ $('#fpm').val(data);
 						<div class="row">
 							<div class="col-md-12">
 								<div class="panel panel-primary">
-									<div class="panel-heading">Fill all Info</div>
+									<div class="panel-heading">Fill all Information</div>
 									<div class="panel-body">
 										<form method="post" action="" class="form-horizontal">
 							<?php
@@ -147,22 +170,21 @@ while($row=$res->fetch_object())
 <div class="form-group">
 <label class="col-sm-2 control-label">Seater</label>
 <div class="col-sm-8">
-<input type="text" name="seater" id="seater"  class="form-control"  >
+<input type="text" name="seater" id="seater"  class="form-control"  readonly>
 </div>
 </div>
-
 <div class="form-group">
 <label class="col-sm-2 control-label">Fees Per Month</label>
 <div class="col-sm-8">
-<input type="text" name="fpm" id="fpm"  class="form-control" >
+<input type="text" name="fpm" id="fpm"  class="form-control" readonly >
 </div>
 </div>
 
 <div class="form-group">
 <label class="col-sm-2 control-label">Food Status</label>
-<div class="col-sm-8">
+<div class="col-sm-8 foodStatus">
 <input type="radio" value="0" name="foodstatus" checked="checked"> Without Food
-<input type="radio" value="1" name="foodstatus"> With Food(Rs 2000.00 Per Month Extra)
+<input type="radio" value="1" name="foodstatus"> With Food (TK 2000 Per Month Extra)
 </div>
 </div>	
 
@@ -176,8 +198,8 @@ while($row=$res->fetch_object())
 <div class="form-group">
 <label class="col-sm-2 control-label">Duration</label>
 <div class="col-sm-8">
-<select name="duration" id="duration" class="form-control">
-<option value="">Select Duration in Month</option>
+<select name="duration" id="duration" class="form-control" onmouseup="calculateTotal()">
+<option value="0">Select Duration in Month</option>
 <option value="1">1</option>
 <option value="2">2</option>
 <option value="3">3</option>
@@ -197,7 +219,8 @@ while($row=$res->fetch_object())
 <div class="form-group">
 <label class="col-sm-2 control-label">Total Amount</label>
 <div class="col-sm-8">
-<input type="text" name="ta" id="ta"  class="result form-control" >
+<input type="text" name="ta" id="ta"  class="result form-control" readonly>
+
 </div>
 </div>
 
@@ -333,10 +356,10 @@ $aid=$_SESSION['id'];
 </div>	
 
 <div class="form-group">
-<label class="col-sm-2 control-label">State </label>
+<label class="col-sm-2 control-label">Division </label>
 <div class="col-sm-8">
 <select name="state" id="state"class="form-control" required> 
-<option value="">Select State</option>
+<option value="">Select Division</option>
 <?php $query ="SELECT * FROM states";
 $stmt2 = $mysqli->prepare($query);
 $stmt2->execute();
@@ -350,7 +373,7 @@ while($row=$res->fetch_object())
 </div>							
 
 <div class="form-group">
-<label class="col-sm-2 control-label">Pincode : </label>
+<label class="col-sm-2 control-label">Postal Code : </label>
 <div class="col-sm-8">
 <input type="text" name="pincode" id="pincode"  class="form-control" required="required">
 </div>
@@ -362,10 +385,8 @@ while($row=$res->fetch_object())
 
 
 <div class="form-group">
-<label class="col-sm-5 control-label">Permanent Address same as Correspondense address : </label>
-<div class="col-sm-4">
-<input type="checkbox" name="adcheck" value="1"/>
-</div>
+<label class="col-sm-5 control-label" sytle="margin-bottom:10px;">Permanent Address same as current Address : </label>
+<input type="checkbox" name="adcheck" value="1" style="margin-top: 15px;">
 </div>
 
 
@@ -384,10 +405,10 @@ while($row=$res->fetch_object())
 </div>	
 
 <div class="form-group">
-<label class="col-sm-2 control-label">State </label>
+<label class="col-sm-2 control-label">Division </label>
 <div class="col-sm-8">
 <select name="pstate" id="pstate"class="form-control" required> 
-<option value="">Select State</option>
+<option value="">Select Division</option>
 <?php $query ="SELECT * FROM states";
 $stmt2 = $mysqli->prepare($query);
 $stmt2->execute();
@@ -401,7 +422,7 @@ while($row=$res->fetch_object())
 </div>							
 
 <div class="form-group">
-<label class="col-sm-2 control-label">Pincode : </label>
+<label class="col-sm-2 control-label">Postal Code : </label>
 <div class="col-sm-8">
 <input type="text" name="ppincode" id="ppincode"  class="form-control" required="required">
 </div>
@@ -449,7 +470,8 @@ while($row=$res->fetch_object())
         });
     });
 </script>
-	<script>
+
+<script>
 function checkAvailability() {
 $("#loaderIcon").show();
 jQuery.ajax({
@@ -483,5 +505,6 @@ $(document).ready(function() {
 
 })});
 </script>
+
 
 </html>

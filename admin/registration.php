@@ -155,7 +155,7 @@ while($row=$res->fetch_object())
 <label class="col-sm-2 control-label">Food Status</label>
 <div class="col-sm-8">
 <input type="radio" value="0" name="foodstatus" checked="checked"> Without Food
-<input type="radio" value="1" name="foodstatus"> With Food(Rs 2000.00 Per Month Extra)
+<input type="radio" value="1" name="foodstatus"> With Food(TK 2000.00 Per Month Extra)
 </div>
 </div>	
 
@@ -294,7 +294,7 @@ while($row=$res->fetch_object())
 </div>	
 
 <div class="form-group">
-<label class="col-sm-3 control-label"><h4 style="color: green" align="left">Correspondense Address </h4> </label>
+<label class="col-sm-3 control-label"><h4 style="color: green" align="left">Current Address </h4> </label>
 </div>
 
 
@@ -313,10 +313,10 @@ while($row=$res->fetch_object())
 </div>	
 
 <div class="form-group">
-<label class="col-sm-2 control-label">State </label>
+<label class="col-sm-2 control-label">Division </label>
 <div class="col-sm-8">
 <select name="state" id="state"class="form-control" required> 
-<option value="">Select State</option>
+<option value="">Select Division</option>
 <?php $query ="SELECT * FROM states";
 $stmt2 = $mysqli->prepare($query);
 $stmt2->execute();
@@ -330,7 +330,7 @@ while($row=$res->fetch_object())
 </div>							
 
 <div class="form-group">
-<label class="col-sm-2 control-label">Pincode : </label>
+<label class="col-sm-2 control-label">Postal Code : </label>
 <div class="col-sm-8">
 <input type="text" name="pincode" id="pincode"  class="form-control" required="required">
 </div>
@@ -364,10 +364,10 @@ while($row=$res->fetch_object())
 </div>	
 
 <div class="form-group">
-<label class="col-sm-2 control-label">State </label>
+<label class="col-sm-2 control-label">Division </label>
 <div class="col-sm-8">
 <select name="pstate" id="pstate"class="form-control" required> 
-<option value="">Select State</option>
+<option value="">Select Division</option>
 <?php $query ="SELECT * FROM states";
 $stmt2 = $mysqli->prepare($query);
 $stmt2->execute();
@@ -381,7 +381,7 @@ while($row=$res->fetch_object())
 </div>							
 
 <div class="form-group">
-<label class="col-sm-2 control-label">Pincode : </label>
+<label class="col-sm-2 control-label">Postal Code : </label>
 <div class="col-sm-8">
 <input type="text" name="ppincode" id="ppincode"  class="form-control" required="required">
 </div>

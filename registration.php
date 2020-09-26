@@ -54,14 +54,21 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Sign Up Form for Students</title>
 
-    <!-- Font Icon -->
-
     <!-- Main css -->
 	<link rel="stylesheet" href="css/login_style.css">
-	<link rel="stylesheet" href="fonts/material-icon/css/material-design-iconic-font.min.css">
+    <link rel="stylesheet" href="fonts/material-icon/css/material-design-iconic-font.min.css">
 
 </head>
+
 <body class="bg-image">
+
+
+<!-- ##### Header Area Start ##### -->
+<header class="header-area">
+<a href="index.html"><img src="img/core-img/logo.png" class="diu-logo alt="></a>
+
+</header>
+<!-- ##### Header Area End ##### -->
 
     <div class="main">
 
@@ -70,6 +77,9 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
                 <div class="signup-content">
                     <form method="POST" id="signup-form" class="signup-form">
 						<h2 class="form-title">Create account</h2>
+                        
+                        <div class="welcomeMsg"><?= $_SESSION['message'] ?></div>
+
 						<div class="form-group">
                             <input type="text" class="form-input" name="regno" id="regno" placeholder="Registration No" required/>
                         </div>
@@ -103,14 +113,20 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
 
                         <div class="form-group">
                             <input type="email" class="form-input" name="emailid" id="emailid" placeholder="Your Email" required/>
+                            
+                            
+                            <span id="user-availability-status" style="font-size:12px;"></span>
                         </div>
+                        
                         <div class="form-group">
-                            <input type="text" class="form-input" name="password" id="password" placeholder="Password" required/>
+                            <input type="password" class="form-input" name="password" id="password" placeholder="Password" required onmousemove="checkPass()"/>
                             <span toggle="#password" class="zmdi zmdi-eye field-icon toggle-password"></span>
                         </div>
                         <div class="form-group">
-                            <input type="password" class="form-input" name="confirm_password" id="confirm_password" placeholder="Confirm your password" required/>
-                        </div>
+                            <input type="password" class="form-input" name="confirm_password" id="confirm_password" placeholder="Confirm your password" required onBlur="checkPass()"/>
+                        
+                        <span id="passwordWarning"></span>
+                        </div>                        
 						
 						<input type="checkbox" class="form-input">
 						
@@ -123,23 +139,49 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
                         </div>
 					</form>
 
-					<div class="welcomeMsg"><?= $_SESSION['message'] ?></div>
-					
+								
 
 
 
                     <p class="loginhere">
-                        Already have an account ? <a href="login.php" class="loginhere-link">Login here</a>
+                        Already have an account ? <a href="login.php" class="loginhere-link">Login here</a>                        
                     </p>
+                    <a href="index.html" class="cancel-button"><p class="cancel-button-text">Cancel</p></a>
                 </div>
             </div>
         </section>
 
     </div>
-
+    
     <!-- JS -->
 
 </body>
+
+
+<script>
+
+function checkPass(){
+    var passwordOnce = document.getElementById('password').value;
+    var passwordTwice = document.getElementById('confirm_password').value;
+    var password_msg = document.getElementById('passwordWarning');
+    
+    if(passwordTwice != ""  && passwordOnce == passwordTwice){
+        password_msg.innerHTML = "Password matched";       
+    }
+    else if(passwordTwice != "" && passwordOnce !== passwordTwice){
+        password_msg.innerHTML = "Password do not match! Try Again";       
+    }
+
+    else if(passwordTwice == ""){
+        password_msg.innerHTML = "";       
+    }
+    
+    else{
+        password_msg.innerHTML = "";       
+    }
+}
+
+</script>
 
 </html>
 

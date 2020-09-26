@@ -281,7 +281,8 @@ body {
   background-image: -ms-linear-gradient(to left, #74ebd5, #9face6);
   background-image: -o-linear-gradient(to left, #74ebd5, #9face6);
   background-image: -webkit-linear-gradient(to left, #74ebd5, #9face6);
-  background-image: linear-gradient(to left, #74ebd5, #9face6); }
+  background-image: linear-gradient(to left, #74ebd5, #9face6);
+  cursor: pointer; }
 
 input[type=checkbox]:not(old) {
   width: 2em;
@@ -301,7 +302,7 @@ input[type=checkbox]:not(old) + label > span {
   height: 13px;
   margin-right: 15px;
   margin-bottom: 3px;
-  border: 1px solid #ebebeb;
+  border: 1px solid black;
   border-radius: 2px;
   -moz-border-radius: 2px;
   -webkit-border-radius: 2px;
@@ -352,8 +353,9 @@ input[type=checkbox]:not(old):checked + label > span:before {
   color: #222; }
 
 .welcomeMsg {
+  color: green;
   font-weight: bold;
-  font-size: 18px;
+  font-size: 15px;
 }
 
 .field-icon {
@@ -373,3 +375,39 @@ input[type=checkbox]:not(old):checked + label > span:before {
     padding: 50px 25px; } }
 
 /*# sourceMappingURL=style.css.map */
+
+.cancel-button{
+  text-decoration:none;
+  text-align:center;   
+}
+
+.cancel-button-text{
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+  background-color: rgb(200,0,0);
+  color: white;
+  font-weight: bold;
+  padding:10px 10px;
+  border:1px solid black;
+  border-radius: 5px;
+}
+
+
+.cancel-button-text:hover{
+  background-color: rgb(250,0,0);
+  color: black;
+
+}
+
+.header-area {
+  width: 300px;
+  height: 100px;
+  /* background-color: rgb(255,255,255,0.4); */
+  margin-left: 20px;
+}
+.diu-logo {   
+  width: 90%;
+}
+
+#passwordWarning {
+  color: red;
+}

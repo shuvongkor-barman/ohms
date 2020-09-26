@@ -541,6 +541,7 @@ li {
 /* component */
 .page-title {
   padding-bottom: 15px;
+  margin-top: 40px;
   margin-bottom: 20px;
   border-bottom: 1px solid #f0f0f0;
 }
@@ -739,6 +740,7 @@ li {
     margin-left: 250px;
   }
 }
+
 /* Login page */
 .login-page {
   position: absolute;
@@ -746,6 +748,7 @@ li {
   width: 100%;
 }
 
+/* custom css start */
 
 .bg-image {
   background-image: url("../img/signup-bg.jpg");
@@ -772,7 +775,92 @@ li {
   .forgot-pass {
     color: black;
     font-size: 18px;
-    background-color: green ;
+    background-color: lightcoral;
     padding: 15px 15px;
     border-radius: 10px;
+  }
+
+  .forgot-pass:hover {
+    color: white;
+    background-color: red;
+
+  }
+
+  .home-button {
+    color: black;
+    font-size: 18px;
+    background-color: rgb(5, 170, 5) ;
+    padding: 15px 15px;
+    border-radius: 10px;
+    margin-left: 30px;
+  }
+
+  .home-button:hover {
+    color: white;
+    font-size: 18px;
+    background-color: rgb(24, 200, 24) ;
+
+  }
+
+
+  .footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: green;
+    color: white;
+    text-align: center;
+    }
+ 
+ .footer_text {
+   color: white;
+   padding-top: 20px;
+ }
+ 
+ .footer_text a {
+   font-size: 1.4em;
+   color: black;
+ }
+
+
+ 
+hr.hline {  
+  width: 90%;
+  margin: 50px auto 50px auto;
+  background-color: gray;
+  height: 3px;
+  border-radius: 90%;
+}
+
+.contact-info {
+  margin-left: 25px;;
+}
+
+.printData a{
+  text-decoration: none;
+  color: white;
+  font-weight: 500;
+}
+
+#zctb tr:nth-child(even){
+  background-color: #f2f2f2;
+}
+
+#zctb2 tr:nth-child(even){
+  background-color: #f2f2f2;
+}
+
+#tableHeading {
+  padding-top: 2px;
+  padding-bottom: 2px;
+  text-align: left;
+  background-color: #4CAF50;
+  color: white;
+}
+
+#printButton {
+	background-color:#008CBA;
+	padding: 10px 10px;
+  
   }
