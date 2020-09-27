@@ -60,7 +60,7 @@
                                     
          
                                     <li><a href="services.html">Services</a></li>
-                                    <li><a href="contact.html">Contact</a></li>
+                                    <li><a href="contact.php">Contact</a></li>
                                 </ul>
 
                                 <!-- Button -->
@@ -277,29 +277,42 @@
         <div class="container">
             <div class="row">
 
-                <!-- Footer Widget Area -->
-                <div class="col-12 col-lg-5">
+                <!-- Footer Widget Area Logo with Text-->
+                <div class="col-12 col-lg-4">
                     <div class="footer-widget-area mt-50">
                         <a href="#" class="d-block mb-5"><img src="img/core-img/logo.png" alt=""></a>
-                        <p>Dhaka International University is one of the Top University in Bangladesh. Dhaka International University offer great education opportunity within affordable cost. Apllicable for all types of students.</p>
+                        <p>Dhaka International University is one of the Top University in Bangladesh. DIU offers great education opportunity within affordable cost. Apllicable for all types of students.</p>
                     </div>
                 </div>
 
-                <!-- Footer Widget Area -->
-                <div class="col-12 col-md-6 col-lg-4">
+                <!-- Footer Widget Area Position on World Map-->
+                <div class="col-12 col-md-6 col-lg-3">
                     <div class="footer-widget-area mt-50">
                         <h6 class="widget-title mb-5">Find us on the map</h6>
                         <a href="https://goo.gl/maps/e1g3MjBimBntQMpe7"><img src="img/bg-img/footer-map.jpg" alt=""></a>
                     </div>
                 </div>
+                
 
-                <!-- Footer Widget Area -->
+
+            <!-- Footer Widget Area APP -->
+            <div class="col-12 col-md-6 col-lg-2">
+                <div class="footer-widget-area mt-50">
+                    <h6 class="widget-title mb-5">Download Our App</h6>
+                    <img src="img/DIU_Hoste_QR.svg" alt="QR code for DIU Hostel App">
+                        
+                    <button type="button" class="btn btn-success" style="margin-left: 35px;margin-top: 10px;"><a href="https://github.com/shuvongkor-barman/ohms_app/raw/master/app/release/DIU_Hostel_v0.4.apk">Download</a></button>
+                </div>
+            </div>
+
+                <!-- Footer Widget Area  Newsletter -->
                 <div class="col-12 col-md-6 col-lg-3">
                     <div class="footer-widget-area mt-50">
                         <h6 class="widget-title mb-5">Subscribe to our newsletter</h6>
-                        <form action="#" method="post" class="subscribe-form">
-                            <input type="email" name="subscribe-email" id="subscribeemail" placeholder="Your E-mail">
-                            <button type="submit">Subscribe</button>
+                        <form action="subscribe.php" method="post" class="subscribe-form">
+						    <input type="text" name="subscriber-name" id="subscribename" placeholder="Your Name" required>
+                            <input type="email" name="subscriber-email" id="subscribeemail" placeholder="Your E-mail" required>
+                            <button type="submit" name="subscribe">Subscribe</button>
                         </form>
                     </div>
                 </div>
@@ -307,9 +320,8 @@
                 <!-- Copywrite Text -->
                 <div class="col-12">
                     <div class="copywrite-text mt-30">
-                        <p><a href="#">
-                            Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | Made by <a href="#" target="_blank">OHMS</a>
-                            </p>
+                        <p><a href="#">Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | Made by <a href="#top" target="_blank" style="margin-left:0px;">OHMS</a>
+                        </p>
                     </div>
                 </div>
             </div>

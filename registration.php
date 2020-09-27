@@ -81,16 +81,16 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
                         <div class="welcomeMsg"><?= $_SESSION['message'] ?></div>
 
 						<div class="form-group">
-                            <input type="text" class="form-input" name="regno" id="regno" placeholder="Registration No" required/>
+                            <input type="text" class="form-input" name="regno" id="regno" placeholder="Registration No *" required/>
                         </div>
                         <div class="form-group">
-                            <input type="text" class="form-input" name="fname" id="fname" placeholder="First Name" required/>
+                            <input type="text" class="form-input" name="fname" id="fname" placeholder="First Name *" required/>
 						</div>
 						<div class="form-group">
                             <input type="text" class="form-input" name="mname" id="mname" placeholder="Middle Name"/>
                         </div>
 						<div class="form-group">
-                            <input type="text" class="form-input" name="lname" id="lname" placeholder="Last Name"/>
+                            <input type="text" class="form-input" name="lname" id="lname" placeholder="Last Name *"/>
 						</div>
 						
 
@@ -98,7 +98,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
 					    <div class="form-group">
 							<div class="col-sm-8">
 							<select name="gender" class="form-input">
-							<option value="">Select Gender</option>
+							<option value="">Select Gender *</option>
 							<option value="male">Male</option>
 							<option value="female">Female</option>
 							<option value="others">Others</option>
@@ -107,12 +107,12 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
 						</div>
 
 						<div class="form-group">
-                            <input type="text" class="form-input" name="contactno" id="contactno" placeholder="Contact No" required/>
+                            <input type="text" class="form-input" name="contactno" id="contactno" placeholder="Contact No *" required/>
                         </div>
 
 
                         <div class="form-group">
-                            <input type="email" class="form-input" name="emailid" id="emailid" placeholder="Your Email" required/>
+                            <input type="email" class="form-input" name="emailid" id="emailid" placeholder="Your Email *" required/>
                             
                             
                             <span id="user-availability-status" style="font-size:12px;"></span>
@@ -120,7 +120,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
                         
                         <div class="form-group">
                             <input type="password" class="form-input" name="password" id="password" placeholder="Password" required onmousemove="checkPass()"/>
-                            <span toggle="#password" class="zmdi zmdi-eye field-icon toggle-password"></span>
+                            <span toggle="#password" class="zmdi zmdi-eye field-icon toggle-password" onclick="showHidePass()"></span>
                         </div>
                         <div class="form-group">
                             <input type="password" class="form-input" name="confirm_password" id="confirm_password" placeholder="Confirm your password" required onBlur="checkPass()"/>
@@ -159,6 +159,16 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
 
 
 <script>
+
+function showHidePass() {
+  var x = document.getElementById("password");
+  if (x.type === "password") {
+    x.type = "text";
+  } else {
+    x.type = "password";
+  }
+}
+
 
 function checkPass(){
     var passwordOnce = document.getElementById('password').value;
